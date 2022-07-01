@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\ResultController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', [TestController::class, 'index'])->name('index');
-
-
+Route::get('/test/{id}', [QuestionController::class, 'index'])->name('test.index');
+Route::post('/result/store', [ResultController::class, 'store'])->name('result.store');

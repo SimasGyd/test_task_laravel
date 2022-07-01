@@ -13,9 +13,6 @@
                 @endforeach
             </div>
         </div>
-        @foreach($questions as $question)
-            <span>{{ $question->title }} <br> </span>
-        @endforeach
     </div>
 
 @endsection
