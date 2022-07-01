@@ -12,10 +12,7 @@ class Question extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'title',
-        'test_id'
-    ];
+    protected $guarded = [];
 
     public function tests(): BelongsToMany
     {
@@ -25,5 +22,12 @@ class Question extends Model
     public function answers(): HasMany
     {
         return $this->hasMany(Answer::class);
+    }
+
+    public function getAnswers()
+    {
+        return Answer::whereHas('questions', function ($query) {
+            $query->where('question_id', $this->id);
+        })->get();
     }
 }

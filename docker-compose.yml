@@ -1,0 +1,46 @@
+version: '3'
+services:
+    mysql:
+        image: mysql/mysql-server:latest
+        container_name: test_task
+        tty: true
+        ports:
+            - 3308:3308
+        environment:
+            MYSQL_DATABASE: test_task
+            MYSQL_ROOT_PASSWORD: root
+        command: --default-authentication-plugin=mysql_native_password
+        networks:
+            - app-network
+    app:
+        build:
+            context: docker
+        container_name: test_task_app
+        restart: unless-stopped
+        tty: true
+        environment:
+            SERVICE_NAME: app
+            SERVICE_TAGS: dev
+        working_dir: /var/www
+        depends_on:
+            - mysql
+        volumes:
+            - ./:/var/www:cached
+        networks:
+            - app-network
+    webserver:
+        image: nginx:alpine
+        container_name: test_task_webserver
+        tty: true
+        depends_on:
+            - app
+        volumes:
+            - ./:/var/www:cached
+            - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+        ports:
+            - 80:80
+        networks:
+            - app-network
+networks:
+    app-network:
+        driver: bridge

@@ -11,6 +11,6 @@ class TestController extends Controller
     {
         $tests = Test::all();
 
-        return view('index', compact('tests'));
+        return view('front.index', compact('tests'));
     }
 }
