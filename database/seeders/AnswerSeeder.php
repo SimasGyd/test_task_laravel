@@ -18,7 +18,7 @@ class AnswerSeeder extends Seeder
     {
         $answers = [
             [
-                ['8 bit', 1, true],
+                ['8 bit', 3, true],
                 ['16 bit', 0, false],
                 ['32 bit', 0, false],
                 ['64 bit', 0, false]
@@ -27,52 +27,52 @@ class AnswerSeeder extends Seeder
                 ['8 bit', 0, false],
                 ['16 bit', 0, false],
                 ['32 bit', 0, false],
-                ['64 bit', 1, true]
+                ['64 bit', 5, true]
             ],
             [
-                ['0.0d', 1, true],
+                ['0.0d', 4, true],
                 ['0.0f', 0, false],
                 ['0', 0, false],
                 ['not defined', 0, false]
             ],
             [
                 ['String is mutable.', 0, false],
-                ['String is immutable.', 1, true],
+                ['String is immutable.', 3, true],
                 ['String is a data type.', 0, false],
                 ['None of the above.', 0, false]
             ],
             [
                 ['Instance variables are static variables within a class but outside any method.', 0, false],
                 ['Instance variables are variables defined inside methods, constructors or blocks.', 0, false],
-                ['Instance variables are variables within a class but outside any method', 1, true],
+                ['Instance variables are variables within a class but outside any method', 6, true],
                 ['None of the above.', 0, false]
             ],
             [
                 ['JRE is a java based GUI application', 0, false],
                 ['JRE is an application development framework.', 0, false],
-                ['JRE is an implementation of the Java Virtual Machine which executes Java programs.', 1, true],
+                ['JRE is an implementation of the Java Virtual Machine which executes Java programs.', 2, true],
                 ['None of the above.', 0, false]
             ],
             [
-                ['A NullPointerException is thrown when calling the instance method of a null object or modifying/accessing field of a null object.', 1, true],
+                ['A NullPointerException is thrown when calling the instance method of a null object or modifying/accessing field of a null object.', 3, true],
                 ['A NullPointerException is thrown when object is set as null.', 0, false],
                 ['A NullPointerException is thrown when object property is set as null.', 0, false],
                 ['None of the above.', 0, false]
             ],
             [
-                ['Thread returns to the ready state.', 1, true],
+                ['Thread returns to the ready state.', 4, true],
                 ['Thread returns to the waiting state.', 0, false],
                 ['Thread starts running.', 0, false],
                 ['None of the above.', 0, false]
             ],
             [
                 ['Compilation Error.', 0, false],
-                ['RunTime Error: NoSuchMethodError.', 1, true],
+                ['RunTime Error: NoSuchMethodError.', 3, true],
                 ['Program will compile and run without any output.', 0, false],
                 ['Program will compile and run to show the required output.', 0, false]
             ],
             [
-                ['Always when try block get executed, no matter exception occurred or not.', 1, true],
+                ['Always when try block get executed, no matter exception occurred or not.', 4, true],
                 ['Always when a method get executed, no matter exception occurred or not.', 0, false],
                 ['Always when a try block get executed, if exception do not occur.', 0, false],
                 ['Only when exception occurs in try block code.', 0, false]
@@ -80,17 +80,17 @@ class AnswerSeeder extends Seeder
             [
                 ['The PHP configuration file, php.ini, is the final and most immediate way to affect PHP\'s functionality.', 0, false],
                 ['The php.ini file is read each time PHP is initialized.', 0, false],
-                ['Both of the above.', 1, true],
+                ['Both of the above.', 2, true],
                 ['None of the above.', 0, false]
             ],
             [
                 ['Integers', 0, false],
-                ['Doubles', 1, true],
+                ['Doubles', 3, true],
                 ['Booleans', 0, false],
                 ['Strings', 0, false]
             ],
             [
-                ['_LINE_', 1, true],
+                ['_LINE_', 3, true],
                 ['_FILE_', 0, false],
                 ['_FUNCTION_', 0, false],
                 ['_CLASS_', 0, false]
@@ -119,17 +119,17 @@ class AnswerSeeder extends Seeder
                 ['$_FILES[\'file\'][\'name\']', 0, false],
                 ['$_FILES[\'file\'][\'name\']', 0, false],
                 ['$_FILES[\'file\'][\'size\']', 0, false],
-                ['$_FILES[\'file\'][\'type\']', 1, true]
+                ['$_FILES[\'file\'][\'type\']', 3, true]
             ],
             [
                 ['getMessage()', 0, false],
-                ['getCode()', 1, true],
+                ['getCode()', 4, true],
                 ['getFile()', 0, false],
                 ['getLine()', 0, false]
             ],
             [
                 ['class_name()', 0, false],
-                ['__construct', 1, true],
+                ['__construct', 4, true],
                 ['constructor', 0, false],
                 ['None of the above.', 0, false]
             ],
@@ -137,7 +137,7 @@ class AnswerSeeder extends Seeder
                 ['Less server interaction', 0, false],
                 ['Immediate feedback to the visitors', 0, false],
                 ['Increased interactivity', 0, false],
-                ['All of the above.', 1, true]
+                ['All of the above.', 4, true]
             ],
             [
                 ['global variable', 1, true],
@@ -148,17 +148,17 @@ class AnswerSeeder extends Seeder
             [
                 ['getIndex()', 0, false],
                 ['location()', 0, false],
-                ['indexOf()', 1, true],
+                ['indexOf()', 3, true],
                 ['None of the above.', 0, false]
             ],
             [
                 ['toValue()', 0, false],
                 ['toNumber()', 0, false],
-                ['toString()', 1, true],
+                ['toString()', 2, true],
                 ['None of the above.', 0, false]
             ],
             [
-                ['toString()', 1, true],
+                ['toString()', 3, true],
                 ['toFixed()', 0, false],
                 ['toLocaleString()', 0, false],
                 ['toPrecision()', 0, false]
@@ -167,10 +167,10 @@ class AnswerSeeder extends Seeder
                 ['substr()', 0, false],
                 ['search()', 0, false],
                 ['lastIndexOf()', 0, false],
-                ['indexOf()', 1, true]
+                ['indexOf()', 3, true]
             ],
             [
-                ['toLocaleLowerCase()', 1, true],
+                ['toLocaleLowerCase()', 3, true],
                 ['toLowerCase()', 0, false],
                 ['toString()', 0, false],
                 ['substring()', 0, false]
@@ -178,19 +178,19 @@ class AnswerSeeder extends Seeder
             [
                 ['fixed()', 0, false],
                 ['fontcolor()', 0, false],
-                ['fontsize()', 1, true],
-                ['bold()', 1, false]
+                ['fontsize()', 3, true],
+                ['bold()', 0, false]
             ],
             [
                 ['pop()', 0, false],
                 ['push()', 0, false],
-                ['reduce()', 1, true],
+                ['reduce()', 4, true],
                 ['reduceRight()', 0, false]
             ],
             [
                 ['toSource()', 0, false],
                 ['sort()', 0, false],
-                ['splice()', 1, true],
+                ['splice()', 3, true],
                 ['unshift()', 0, false]
             ]
         ];

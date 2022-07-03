@@ -3,8 +3,11 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Models\Question;
+use App\Models\Test;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class ResultService
 {
@@ -14,12 +17,47 @@ class ResultService
             'name' => 'required'
         ]);
 
+        $testId = $request->get('testId');
         $result->name = $request->get('name');
         $answerIds = $request->get('answerIds');
+
+        if ($testId) {
+            $test = Test::find($testId);
+            $result->test()->associate($test);
+        }
 
         $result->save();
 
         $result->answers()->sync($answerIds);
+    }
 
+    public function countValidAnswers(Model $result): int
+    {
+        return $result->answers->sum('points');
+    }
+
+    public function countPoints(int $id): int
+    {
+        $points = 0;
+        $questions = $this->getQuestions($id);
+
+        foreach ($questions as $question) {
+            $answers = $question->getAnswers();
+            $points += $answers->sum('points');
+        }
+
+        return $points;
+    }
+
+    public function getQuestions(int $id): Collection
+    {
+        return Question::whereHas('tests', function ($query) use ($id){
+            $query->where('test_id', $id);
+        })->get();
+    }
+
+    public function percentageScore($result): float
+    {
+        return  round(($this->countValidAnswers($result) / $this->countPoints($result->test_id) * 100), 2);
     }
 }
