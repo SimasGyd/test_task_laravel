@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [TestController::class, 'index'])->name('index');
 Route::get('/test/{id}', [QuestionController::class, 'index'])->name('test.index');
-//Route::get('/test/{id}', [QuestionController::class, 'edit'])->name('test.edit');
 Route::post('/result/store', [ResultController::class, 'store'])->name('result.store');
 Route::get('/result/index/{id}', [ResultController::class, 'index'])->name('result.index');
 Route::get('/result/summary/{id}', [ResultSummaryController::class, 'index'])->name('result.summary');
