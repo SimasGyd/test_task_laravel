@@ -33,11 +33,14 @@ docker-compose exec app php artisan {command}
 
 Index page
 
-![](C:/Users/Simas/Desktop/index_page.jpg)
+![index_page](https://user-images.githubusercontent.com/75373218/177052661-2bb9ad4d-1b12-400e-b249-a6edbfff50c7.jpg)
 
 Question page
 
-![](C:/Users/Simas/Desktop/question_page.jpg)
+![question_page](https://user-images.githubusercontent.com/75373218/177052672-d1383805-6f43-4864-ac80-02ca089a2300.jpg)
+
 
 Result summary
+
+![result_summary_page](https://user-images.githubusercontent.com/75373218/177052680-ee047956-e43f-4722-a709-1a91314d2b05.jpg)
 
