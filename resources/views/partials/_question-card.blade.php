@@ -6,8 +6,8 @@
 
         @foreach($question->answers as $answer)
             <div class="form-check mx-3 my-2">
-                <input class="form-check-input js-answer-id" data-id="{{ $questions->currentPage() }}" value="{{ $answer->id }}" type="radio" name="answerId" id="answer{{$answer->id}}">
-                <label class="form-check-label" for="answer{{$answer->id}}">
+                <input class="form-check-input js-answer-id" data-id="{{ $questions->currentPage() }}" value="{{ $answer->id }}" type="radio" name="answerId" id="answer{{ $answer->id }}">
+                <label class="form-check-label" for="answer{{ $answer->id }}">
                     {{ $answer->title }}
                 </label>
             </div>
@@ -16,7 +16,7 @@
     </div>
 
     <div class="card-footer d-flex flex-row justify-content-center">
-        <a href="{{$questions->previousPageUrl() }}" class="card-link js-previous-button">Previous</a>
+        <a href="{{ $questions->previousPageUrl() }}" class="card-link js-previous-button">Previous</a>
         <a href="{{ $questions->nextPageUrl() }}" class="card-link js-next-button"> {{ $questions->onLastPage() ? 'Submit' : 'Next' }}</a>
     </div>
 
@@ -34,7 +34,7 @@
 
     <div class="row text-center m-2">
         <div>
-            <a href="{{$questions->url(1) }}" class="btn btn-warning js-restart-session">Restart test</a>
+            <a href="{{ $questions->url(1) }}" class="btn btn-warning js-restart-session">Restart test</a>
             <button class="btn btn-primary js-submit-form" disabled>Submit Test</button>
         </div>
     </div>
