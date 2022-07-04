@@ -12,9 +12,11 @@ class ResultSummaryController extends Controller
     public function index(int $id, ResultService $resultService): View
     {
         $result = Result::find($id);
+
         $answers = $result->answers()->allRelatedIds()->toArray();
+        $orderedQuestions = $resultService->getOrderedQuestions($answers);
 
         return view('front.summary',
-            compact('result' , 'answers', 'resultService'));
+            compact('result' , 'answers', 'resultService', 'orderedQuestions'));
     }
 }

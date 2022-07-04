@@ -6,7 +6,6 @@ $(document).ready(function () {
     let savedAnswer = localStorage.getItem(pageNumber);
     let storageLength = localStorage.length;
 
-
     if (Object.keys(localStorage).length >= 10) {
         $('.js-submit-form').attr('disabled', false);
     }
@@ -36,9 +35,18 @@ $(document).ready(function () {
             if ($.isNumeric(key)) {
                 let value = JSON.parse(localStorage.getItem(key))
                 $('.js-answers').prepend('' +
-                    '<input type="hidden" id="answer' + key + '" value="' + value + '" name="answerIds[]">');
+                    '<input type="hidden" id="' + key + '" value="' + value + '" name="answerIds[]">');
             }
         });
+
+        $('.js-answers input').sort(function(a, b) {
+            return parseInt(a.id) - parseInt(b.id);
+        }).each(function() {
+            let elem = $(this);
+            elem.remove();
+            $(elem).appendTo('.js-answers');
+        });
+
         localStorage.clear();
     });
 
