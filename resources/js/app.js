@@ -6,7 +6,6 @@ $(document).ready(function () {
     let savedAnswer = localStorage.getItem(pageNumber);
     let storageLength = localStorage.length;
 
-
     if (Object.keys(localStorage).length >= 10) {
         $('.js-submit-form').attr('disabled', false);
     }
@@ -29,20 +28,7 @@ $(document).ready(function () {
             event.preventDefault();
             alert('Please select answer');
         }
-        // Object.keys(localStorage).forEach((key) => {
-        //     if ($.isNumeric(key)) {
-        //         let value = JSON.parse(localStorage.getItem(key))
-        //         $('.js-answers').prepend('' +
-        //             '<input type="hidden" id="' + key + '" value="' + value + '" name="answerIds[]">');
-        //     }
-        // });
-        // event.preventDefault();
     });
-
-    // $('.js-click-me').on('click', function () {
-    //     console.log(111);
-    //
-    // })
 
     $('form').on('submit', function () {
         Object.keys(localStorage).forEach((key) => {
@@ -94,7 +80,6 @@ $(document).ready(function () {
             $(cell).css('background-color', 'LightYellow');
         }
     })
-
 });
 
 
