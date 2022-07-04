@@ -39,16 +39,16 @@
         <div class="border-top my-3"></div>
         <table class="table table-striped">
             <thead>
-            @foreach($resultService->getQuestions($result->test_id) as $question)
+            @foreach($orderedQuestions as $question)
                 <tr>
-                    <th class="col-10">{{ $question->title }}</th>
+                    <th class="col-10">{{ $question->first()->title }}</th>
                 </tr>
             </thead>
             <tbody>
             <tr>
                 <td>
                     <table class="table table-nostriped table-answers">
-                        @foreach($question->getAnswers() as $answer)
+                        @foreach($question->first()->answers as $answer)
                             <tr>
                                 <td class="col-10">{{ $answer->title }}</td>
                                 <td class="col-1 js-points" data-id="{{ $answer->points }}">{{ $answer->points }}</td>

@@ -29,16 +29,38 @@ $(document).ready(function () {
             event.preventDefault();
             alert('Please select answer');
         }
+        // Object.keys(localStorage).forEach((key) => {
+        //     if ($.isNumeric(key)) {
+        //         let value = JSON.parse(localStorage.getItem(key))
+        //         $('.js-answers').prepend('' +
+        //             '<input type="hidden" id="' + key + '" value="' + value + '" name="answerIds[]">');
+        //     }
+        // });
+        // event.preventDefault();
     });
+
+    // $('.js-click-me').on('click', function () {
+    //     console.log(111);
+    //
+    // })
 
     $('form').on('submit', function () {
         Object.keys(localStorage).forEach((key) => {
             if ($.isNumeric(key)) {
                 let value = JSON.parse(localStorage.getItem(key))
                 $('.js-answers').prepend('' +
-                    '<input type="hidden" id="answer' + key + '" value="' + value + '" name="answerIds[]">');
+                    '<input type="hidden" id="' + key + '" value="' + value + '" name="answerIds[]">');
             }
         });
+
+        $('.js-answers input').sort(function(a, b) {
+            return parseInt(a.id) - parseInt(b.id);
+        }).each(function() {
+            let elem = $(this);
+            elem.remove();
+            $(elem).appendTo('.js-answers');
+        });
+
         localStorage.clear();
     });
 
@@ -72,6 +94,7 @@ $(document).ready(function () {
             $(cell).css('background-color', 'LightYellow');
         }
     })
+
 });
 
 

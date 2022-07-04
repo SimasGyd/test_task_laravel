@@ -10,7 +10,7 @@
                   enctype="multipart/form-data">
                 @csrf
                 <div class="d-flex flex-row justify-content-center my-5">
-                    @foreach($shuffledQuestions as $question)
+                    @foreach($questions as $question)
                         @include('partials._question-card')
                     @endforeach
                 </div>

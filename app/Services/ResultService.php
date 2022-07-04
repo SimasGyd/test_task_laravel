@@ -42,14 +42,14 @@ class ResultService
         $questions = $this->getQuestions($id);
 
         foreach ($questions as $question) {
-            $answers = $question->getAnswers();
+            $answers = $question->answers;
             $points += $answers->sum('points');
         }
 
         return $points;
     }
 
-    public function getQuestions(int $id): Collection
+    private function getQuestions(int $id): Collection
     {
         return Question::whereHas('tests', function ($query) use ($id){
             $query->where('test_id', $id);
@@ -59,5 +59,18 @@ class ResultService
     public function percentageScore($result): float
     {
         return  round(($this->countValidAnswers($result) / $this->countPoints($result->test_id) * 100), 2);
+    }
+
+    public function getOrderedQuestions($answers): Collection
+    {
+        $questions = new Collection();
+
+        foreach ($answers as $id) {
+            $questions->push(Question::whereHas('answers', function ($query) use ($id){
+                $query->where('answer_id', $id);
+            })->with('answers')->get());
+        }
+
+        return $questions;
     }
 }
